@@ -11,4 +11,4 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build docker image
       run:
-        docker build -t ${GITHUB_REPOSITORY}:${GITHUB_REF} --build-arg DOCKER_VER=${GITHUB_REF} .
+        docker build -t ${GITHUB_REPOSITORY}:${GITHUB_REF:11} --build-arg DOCKER_VER=${GITHUB_REF:11} .
