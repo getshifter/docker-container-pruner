@@ -16,5 +16,5 @@ jobs:
       env:
         IMAGE_NAME: docker-container-pruner
       run: |
-        docker tag local-image docker.pkg.github.com/${GITHUB_REPOSITORY}/${IMAGE_NAME}:${GITHUB_REF:11}
+        docker tag ${GITHUB_REPOSITORY}:${GITHUB_REF:11} docker.pkg.github.com/${GITHUB_REPOSITORY}/${IMAGE_NAME}:${GITHUB_REF:11}
         docker push docker.pkg.github.com/${GITHUB_REPOSITORY}/${IMAGE_NAME}:${GITHUB_REF:11}
