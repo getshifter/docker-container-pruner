@@ -14,9 +14,11 @@ jobs:
         docker build -t ${GITHUB_REPOSITORY}:${GITHUB_REF:11} --build-arg DOCKER_VER=${GITHUB_REF:11} .
     - name: Upload Docker Image
       env:
+        my_token: ${{ secrets.MY_TOKEN }}
+      env:
         IMAGE_NAME: docker-container-pruner
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         docker tag ${GITHUB_REPOSITORY}:${GITHUB_REF:11} docker.pkg.github.com/${GITHUB_REPOSITORY}/${IMAGE_NAME}:${GITHUB_REF:11}
-        docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${GITHUB_TOKEN}
+        docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${my_token}
         docker push docker.pkg.github.com/${GITHUB_REPOSITORY}/${IMAGE_NAME}:${GITHUB_REF:11}
