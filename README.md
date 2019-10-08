@@ -23,7 +23,6 @@ docker service create --name docker-container-pruner \
   docker.io/getshifter/docker-container-pruner:latest
 ```
 
-
 ### Envs
 
 - `PRUNE_BEFORE`: used by filter => `--filter "until=${prune_before}"`. (default: 2h)
