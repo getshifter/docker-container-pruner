@@ -1,0 +1,1 @@
+docker build --build-arg DOCKER_VER=$SOURCE_BRANCH -f $DOCKERFILE_PATH -t $IMAGE_NAME .
